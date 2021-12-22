@@ -1,0 +1,10 @@
+# dev requirements
+pip-tools
+black
+isort
+mypy
+
+# requirements
+Django
+django-cors-headers
+djangorestframework
