@@ -19,6 +19,7 @@ const TodoCreate = ({ handleCreateTodo, ...props }) => {
           placeholder="Add todo"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          id="add-todo-input"
         />
         <Button variant="primary" type="submit">
           Submit

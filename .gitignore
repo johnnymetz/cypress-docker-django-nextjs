@@ -141,8 +141,8 @@ cython_debug/
 
 # cypress
 cypress.env.json
-frontend/cypress/screenshots/
-frontend/cypress/videos/
+**/cypress/screenshots/
+**/cypress/videos/
 
 # misc
 .DS_Store
@@ -167,6 +167,7 @@ build
 
 # misc
 *.pem
+.vscode/
 
 # debug
 npm-debug.log*

@@ -1,5 +1,6 @@
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.status import HTTP_201_CREATED
 from rest_framework.viewsets import ModelViewSet
 
 from todos.models import Todo
@@ -17,10 +18,10 @@ class TodoViewSet(ModelViewSet):
 
         # create new data
         todos = [
-            Todo.objects.create(title="Walk the dog", done=False),
-            Todo.objects.create(title="Watch the NBA game", done=True),
+            Todo.objects.create(title="Walk the dog", done=True),
+            Todo.objects.create(title="Buy groceries", done=False),
         ]
 
         serializer = TodoSerializer(todos, many=True)
 
-        return Response(serializer.data)
+        return Response(serializer.data, status=HTTP_201_CREATED)

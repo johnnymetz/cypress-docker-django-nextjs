@@ -1,5 +1,7 @@
 {
   "baseUrl": "http://frontend:3000",
   "video": false,
-  "env": { "serverUrl": "http://backend:8000" }
+  "env": {
+    "BACKEND_HOST": "http://backend:8000"
+  }
 }

@@ -7,7 +7,7 @@ const TodoListItem = ({ todo, toggleTodoDone, handleDeleteTodo }) => {
   const [isDone, setIsDone] = useState(todo.done);
 
   return (
-    <ListGroup.Item>
+    <ListGroup.Item className="todo-list-item">
       <div className="d-flex justify-content-between align-items-center">
         <div>
           <Form.Check
@@ -22,8 +22,9 @@ const TodoListItem = ({ todo, toggleTodoDone, handleDeleteTodo }) => {
             variant="outline-danger"
             size="sm"
             onClick={() => handleDeleteTodo(todo)}
+            disabled={!isDone}
           >
-            Done
+            Delete
           </Button>
         </div>
       </div>
