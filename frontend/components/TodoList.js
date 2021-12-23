@@ -6,6 +6,8 @@ import TodoListItem from './TodoListItem';
 const TodoList = ({ todos, toggleTodoDone, handleDeleteTodo }) => {
   if (!todos) {
     return <Alert variant="secondary">Loading...</Alert>;
+  } else if (!todos.length) {
+    return <Alert variant="secondary">No todos</Alert>;
   }
   return (
     <ListGroup>
