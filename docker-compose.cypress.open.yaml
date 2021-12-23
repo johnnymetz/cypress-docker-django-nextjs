@@ -1,0 +1,19 @@
+services:
+  backend:
+    command: bash -c "
+      ./manage.py migrate && \
+      ./manage.py runserver 0.0.0.0:8000"
+
+  cypress-open:
+    image: cypress/included:9.1.0
+    working_dir: /app
+    entrypoint: cypress open --config-file false --project .
+    network_mode: host
+    environment:
+      - CYPRESS_BASE_URL=http://localhost:3000
+      - CYPRESS_BACKEND_HOST=http://localhost:8000
+      - DISPLAY
+    volumes:
+      - ./frontend/cypress:/app/cypress
+    depends_on:
+      - frontend
