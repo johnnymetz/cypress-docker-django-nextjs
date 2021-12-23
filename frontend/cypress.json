@@ -1,0 +1,7 @@
+{
+  "baseUrl": "http://localhost:3000",
+  "video": false,
+  "env": {
+    "BACKEND_HOST": "http://localhost:8000"
+  }
+}

@@ -1,4 +1,4 @@
-# Docker Django Next.js Cypress
+# Cypress Docker Django Next.js
 
 Basic example of testing a Full Stack application with Cypress inside of Docker.
 

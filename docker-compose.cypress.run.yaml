@@ -1,14 +1,4 @@
 services:
-  backend:
-    command: bash -c "
-      ./manage.py migrate && \
-      ./manage.py runserver 0.0.0.0:8000"
-    # want to disable logging to reduce noise but it's not supported anymore:
-    # https://stackoverflow.com/questions/34590317/disable-logging-for-one-container-in-docker-compose
-    # https://github.com/docker/compose/issues/8578
-    logging:
-      driver: none
-
   frontend:
     environment:
       - NEXT_PUBLIC_BACKEND_HOST=http://backend:8000
@@ -16,14 +6,8 @@ services:
   cypress-run:
     # https://hub.docker.com/r/cypress/included/tags
     image: cypress/included:9.1.0
-    working_dir: /app
-    entrypoint: cypress run --config-file false
-    environment:
-      - CYPRESS_BASE_URL=http://frontend:3000
-      - CYPRESS_BACKEND_HOST=http://backend:8000
-      # - CYPRESS_SCREENSHOT_ON_RUN_FAILURE=false
-      # - CYPRESS_VIDEO=false
     volumes:
-      - ./frontend/cypress:/app/cypress
+      - ./frontend/cypress:/cypress
+      - ./frontend/cypress-docker.json:/cypress.json
     depends_on:
       - frontend
