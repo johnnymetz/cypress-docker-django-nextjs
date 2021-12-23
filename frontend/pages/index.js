@@ -19,19 +19,19 @@ const Home = () => {
   const handleCreateTodo = async (title) => {
     const newTodo = await createTodo({ title });
     setTodos((currentTodos) => [...currentTodos, newTodo]);
-    toast.success(`"${title}" successfully updated`);
+    toast.success(`"${title}" added`);
   };
 
   const toggleTodoDone = async (todo, isDone, setIsDone) => {
     await updateTodo(todo.id, { done: isDone });
     setIsDone(isDone);
-    toast.success(`"${todo.title}" successfully updated`);
+    toast.success(`"${todo.title}" marked as done`);
   };
 
   const handleDeleteTodo = async (todo) => {
     await deleteTodo(todo.id);
     setTodos(todos.filter((x) => x.id != todo.id));
-    toast.success(`"${todo.title}" successfully deleted`);
+    toast.success(`"${todo.title}" deleted`);
   };
 
   return (

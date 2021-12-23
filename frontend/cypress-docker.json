@@ -2,5 +2,9 @@
   "baseUrl": "http://frontend:3000",
   "env": {
     "BACKEND_HOST": "http://backend:8000"
+  },
+  "retries": {
+    "runMode": 2,
+    "openMode": 0
   }
 }
