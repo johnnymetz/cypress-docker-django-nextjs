@@ -18,4 +18,5 @@ jobs:
           start: docker compose up
           # quote the url to be safe against YML parsing surprises
           wait-on: 'http://localhost:3000'
+          wait-on-timeout: 120
           working-directory: frontend
