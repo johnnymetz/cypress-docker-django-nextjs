@@ -9,9 +9,7 @@ services:
       - ./backend:/app
 
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    build: ./frontend
     ports:
       - '3000:3000'
     environment:
