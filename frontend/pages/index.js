@@ -11,9 +11,13 @@ import { fetchTodos, createTodo, updateTodo, deleteTodo } from '../backend';
 const Home = () => {
   const [todos, setTodos] = useState([]);
 
-  useEffect(async () => {
+  const fetchTodosWrapper = async () => {
     const data = await fetchTodos();
     setTodos(data);
+  };
+
+  useEffect(async () => {
+    fetchTodosWrapper();
   }, []);
 
   const handleCreateTodo = async (title) => {
