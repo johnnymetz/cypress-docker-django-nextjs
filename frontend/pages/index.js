@@ -6,14 +6,24 @@ import { toast } from 'react-toastify';
 
 import TodoCreate from '../components/TodoCreate';
 import TodoList from '../components/TodoList';
-import { fetchTodos, createTodo, updateTodo, deleteTodo } from '../backend';
+import {
+  BACKEND_HOST,
+  fetchTodos,
+  createTodo,
+  updateTodo,
+  deleteTodo,
+} from '../backend';
 
 const Home = () => {
   const [todos, setTodos] = useState([]);
 
-  useEffect(async () => {
+  const fetchTodosWrapper = async () => {
     const data = await fetchTodos();
     setTodos(data);
+  };
+
+  useEffect(async () => {
+    fetchTodosWrapper();
   }, []);
 
   const handleCreateTodo = async (title) => {
@@ -33,6 +43,10 @@ const Home = () => {
     setTodos(todos.filter((x) => x.id != todo.id));
     toast.success(`"${todo.title}" deleted`);
   };
+
+  if (!BACKEND_HOST) {
+    return <div>No backend found.</div>;
+  }
 
   return (
     <Container>

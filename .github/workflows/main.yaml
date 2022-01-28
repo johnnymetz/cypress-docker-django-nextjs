@@ -1,0 +1,22 @@
+# https://github.com/cypress-io/github-action
+name: End-to-end tests
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          start: docker compose up
+          # quote the url to be safe against YML parsing surprises
+          wait-on: 'http://localhost:3000'
+          wait-on-timeout: 180
+          working-directory: frontend
