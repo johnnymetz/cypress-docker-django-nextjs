@@ -5,7 +5,7 @@ services:
 
   cypress-run:
     # https://hub.docker.com/r/cypress/included/tags
-    image: cypress/included:9.1.0
+    image: cypress/included:9.3.1
     volumes:
       - ./frontend/cypress:/cypress
       - ./frontend/cypress-docker.json:/cypress.json

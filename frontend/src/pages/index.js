@@ -4,21 +4,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { toast } from 'react-toastify';
 
-import TodoCreate from '../components/TodoCreate';
-import TodoList from '../components/TodoList';
-import {
-  BACKEND_HOST,
-  fetchTodos,
-  createTodo,
-  updateTodo,
-  deleteTodo,
-} from '../backend';
+import TodoCreate from 'src/components/TodoCreate';
+import TodoList from 'src/components/TodoList';
+import { fetchTodos, createTodo, updateTodo, deleteTodo } from 'src/backend';
 
 const Home = () => {
-  if (!BACKEND_HOST) {
-    return <div>No backend found.</div>;
-  }
-
   const [todos, setTodos] = useState([]);
 
   const fetchTodosWrapper = async () => {
