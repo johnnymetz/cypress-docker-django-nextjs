@@ -5,7 +5,9 @@ docker-cypress-run:
 	up --abort-on-container-exit --remove-orphans
 
 docker-cypress-open:
-	docker compose \
+	open -a XQuartz && \
+	xhost + 127.0.0.1 && \
+	DISPLAY=host.docker.internal:0 docker compose \
 	-f docker-compose.yaml \
 	-f docker-compose.cypress-run.yaml \
 	-f docker-compose.cypress-open.yaml \
