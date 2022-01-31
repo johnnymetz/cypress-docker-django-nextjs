@@ -1,16 +1,6 @@
 services:
-  frontend:
-    environment:
-      - NEXT_PUBLIC_BACKEND_HOST=http://backend:8000
-
-  cypress-open:
-    image: cypress/included:9.3.1
+  cypress:
     # need to specify project location otherwise cypress can't find it
     entrypoint: cypress open --project .
     environment:
       - DISPLAY
-    volumes:
-      - ./frontend/cypress:/cypress
-      - ./frontend/cypress-docker.json:/cypress.json
-    depends_on:
-      - frontend

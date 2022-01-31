@@ -13,7 +13,7 @@ services:
     ports:
       - '3000:3000'
     environment:
-      - NEXT_PUBLIC_BACKEND_HOST=http://localhost:8000
+      - NEXT_PUBLIC_BACKEND_URL=http://localhost:8000
     volumes:
       - ./frontend:/app
       - /app/node_modules

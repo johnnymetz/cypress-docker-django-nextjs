@@ -1,5 +1,5 @@
-const BACKEND_HOST = process.env.NEXT_PUBLIC_BACKEND_HOST;
-const TODOS_URL = `${BACKEND_HOST}/todos`;
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+const TODOS_URL = `${BACKEND_URL}/todos`;
 
 export const fetchTodos = async () => {
   try {

@@ -4,4 +4,4 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Notes
 
-- Retries in cypress configuration files (`cypress.json` and `cypress-docker.json`) reduce test flaskiness.
+- Retries in `cypress.json` configuration file reduce test flaskiness.

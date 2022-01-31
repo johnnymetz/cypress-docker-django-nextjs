@@ -1,13 +1,16 @@
 services:
   frontend:
     environment:
-      - NEXT_PUBLIC_BACKEND_HOST=http://backend:8000
+      - NEXT_PUBLIC_BACKEND_URL=http://backend:8000
 
-  cypress-run:
+  cypress:
     # https://hub.docker.com/r/cypress/included/tags
     image: cypress/included:9.3.1
     volumes:
       - ./frontend/cypress:/cypress
-      - ./frontend/cypress-docker.json:/cypress.json
+      - ./frontend/cypress.json:/cypress.json
+    environment:
+      - CYPRESS_BASE_URL=http://frontend:3000
+      - CYPRESS_BACKEND_URL=http://backend:8000
     depends_on:
       - frontend
