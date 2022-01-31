@@ -1,8 +1,4 @@
 {
-  "baseUrl": "http://localhost:3000",
-  "env": {
-    "BACKEND_HOST": "http://localhost:8000"
-  },
   "retries": {
     "runMode": 2,
     "openMode": 0

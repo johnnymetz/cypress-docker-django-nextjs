@@ -1,4 +1,4 @@
-const BACKEND_HOST = Cypress.env('BACKEND_HOST');
+const BACKEND_URL = Cypress.env('BACKEND_URL');
 
 Cypress.Commands.add('seedDatabase', () => {
   const log = Cypress.log({
@@ -8,7 +8,7 @@ Cypress.Commands.add('seedDatabase', () => {
 
   cy.request({
     method: 'POST',
-    url: `${BACKEND_HOST}/todos/seed/`,
+    url: `${BACKEND_URL}/todos/seed/`,
     log: false,
   }).should((res) => {
     expect(res.status).to.eq(201);
