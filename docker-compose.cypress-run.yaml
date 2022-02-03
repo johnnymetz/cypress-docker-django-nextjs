@@ -4,8 +4,7 @@ services:
       - NEXT_PUBLIC_BACKEND_URL=http://backend:8000
 
   cypress:
-    # https://hub.docker.com/r/cypress/included/tags
-    image: cypress/included:9.3.1
+    image: cypress/included:9.4.1
     volumes:
       - ./frontend/cypress:/cypress
       - ./frontend/cypress.json:/cypress.json

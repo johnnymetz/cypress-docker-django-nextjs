@@ -33,3 +33,10 @@ make cypress-run-host
 ```
 make cypress-open-host
 ```
+
+## Upgrade cypress library
+
+Find the latest tag on [Docker Hub - cypress tags](https://hub.docker.com/r/cypress/included/tags). Then update the tag in the following two files:
+
+- `docker-compose.cypress-run-yaml`
+- `frontend/package.json`
