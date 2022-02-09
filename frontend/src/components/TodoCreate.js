@@ -6,7 +6,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 const TodoCreate = ({ handleCreateTodo, ...props }) => {
   const [title, setTitle] = useState('');
 
-  const onSubmit = async (e) => {
+  const onSubmit = async e => {
     e.preventDefault();
     await handleCreateTodo(title);
   };
@@ -18,7 +18,7 @@ const TodoCreate = ({ handleCreateTodo, ...props }) => {
           required
           placeholder="Add todo"
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={e => setTitle(e.target.value)}
           id="add-todo-input"
         />
         <Button variant="primary" type="submit">

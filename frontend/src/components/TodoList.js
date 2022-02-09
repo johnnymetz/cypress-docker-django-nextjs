@@ -11,7 +11,7 @@ const TodoList = ({ todos, toggleTodoDone, handleDeleteTodo }) => {
   }
   return (
     <ListGroup>
-      {todos.map((todo) => (
+      {todos.map(todo => (
         <TodoListItem
           key={todo.id}
           todo={todo}

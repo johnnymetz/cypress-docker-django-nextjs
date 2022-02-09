@@ -10,7 +10,7 @@ Cypress.Commands.add('seedDatabase', () => {
     method: 'POST',
     url: `${BACKEND_URL}/todos/seed/`,
     log: false,
-  }).should((res) => {
+  }).should(res => {
     expect(res.status).to.eq(201);
   });
 

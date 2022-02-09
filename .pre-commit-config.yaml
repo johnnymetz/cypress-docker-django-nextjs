@@ -1,0 +1,15 @@
+exclude: '.git'
+default_stages: [commit]
+
+ci:
+  autofix_prs: false
+
+repos:
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.5.1
+    hooks:
+      - id: prettier
+  - repo: https://github.com/hadolint/hadolint
+    rev: 'v2.8.0'
+    hooks:
+      - id: hadolint-docker

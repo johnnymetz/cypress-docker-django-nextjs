@@ -20,9 +20,9 @@ const Home = () => {
     fetchTodosWrapper();
   }, []);
 
-  const handleCreateTodo = async (title) => {
+  const handleCreateTodo = async title => {
     const newTodo = await createTodo({ title });
-    setTodos((currentTodos) => [...currentTodos, newTodo]);
+    setTodos(currentTodos => [...currentTodos, newTodo]);
     toast.success(`"${title}" added`);
   };
 
@@ -32,9 +32,9 @@ const Home = () => {
     toast.success(`"${todo.title}" marked as done`);
   };
 
-  const handleDeleteTodo = async (todo) => {
+  const handleDeleteTodo = async todo => {
     await deleteTodo(todo.id);
-    setTodos(todos.filter((x) => x.id != todo.id));
+    setTodos(todos.filter(x => x.id != todo.id));
     toast.success(`"${todo.title}" deleted`);
   };
 

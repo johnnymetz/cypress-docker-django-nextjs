@@ -13,7 +13,7 @@ export const fetchTodos = async () => {
   }
 };
 
-export const createTodo = async (payload) => {
+export const createTodo = async payload => {
   try {
     const res = await fetch(`${TODOS_URL}/`, {
       method: 'POST',
@@ -45,7 +45,7 @@ export const updateTodo = async (todoId, payload) => {
   }
 };
 
-export const deleteTodo = async (todoId) => {
+export const deleteTodo = async todoId => {
   try {
     const res = await fetch(`${TODOS_URL}/${todoId}/`, { method: 'DELETE' });
     if (res.status !== 204) {
