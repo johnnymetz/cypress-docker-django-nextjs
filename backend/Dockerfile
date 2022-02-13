@@ -8,9 +8,6 @@ COPY requirements.txt ./
 RUN pip install --upgrade --no-cache-dir pip && \
   pip install --no-cache-dir -r requirements.txt
 
-# make port available to other containers
-EXPOSE 8000
-
 # copy source code
 COPY . .
 

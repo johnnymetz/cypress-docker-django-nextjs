@@ -1,0 +1,9 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      target: deps
+    # run development mode which allows env var to be injected at runtime
+    command: npm run dev
+    environment:
+      - NEXT_PUBLIC_BACKEND_URL=http://localhost:8000

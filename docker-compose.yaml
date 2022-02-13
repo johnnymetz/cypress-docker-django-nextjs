@@ -9,11 +9,12 @@ services:
       - ./backend:/app
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      args:
+        - NEXT_PUBLIC_BACKEND_URL=http://localhost:8000
     ports:
       - '3000:3000'
-    environment:
-      - NEXT_PUBLIC_BACKEND_URL=http://localhost:8000
     volumes:
       - ./frontend:/app
       - /app/node_modules

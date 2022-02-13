@@ -1,13 +1,23 @@
-FROM node:17
+# Stage 1: install dependencies
+FROM node:17 AS deps
 WORKDIR /app
-
-# install dependencies
-COPY package*.json ./
+COPY package*.json .
 RUN npm install
 
-# copy source code
-COPY src/ ./src
+# Stage 2: build
+FROM node:17 AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY src ./src
+COPY package.json next.config.js jsconfig.json ./
+ARG NEXT_PUBLIC_BACKEND_URL
+ENV NEXT_PUBLIC_BACKEND_URL $NEXT_PUBLIC_BACKEND_URL
+RUN npm run build
 
-EXPOSE 3000
-
-CMD ["npm", "run", "dev"]
+# Stage 3: run
+FROM node:17
+WORKDIR /app
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./
+CMD ["npm", "run", "start"]

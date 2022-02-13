@@ -1,7 +1,9 @@
 services:
   frontend:
-    environment:
-      - NEXT_PUBLIC_BACKEND_URL=http://backend:8000
+    build:
+      context: ./frontend
+      args:
+        - NEXT_PUBLIC_BACKEND_URL=http://backend:8000
 
   cypress:
     image: cypress/included:9.4.1
